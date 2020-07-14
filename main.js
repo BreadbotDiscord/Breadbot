@@ -33,14 +33,6 @@ bot.on("ready", async () =>{
     console.log(`${bot.user.username} is online on ${bot.guilds.cache.size} servers!`);
     bot.user.setActivity(`?help`, {type: "WATCHING"});
 })
-//New user greeting 
-bot.on("guildMemberAdd", member =>{
-
-    const joinchannel = member.guild.channels.cache.find(joinchannel => channel.name === "Joins and leaves")
-    if(joinchannel) return;
-
-    channel.send(`Welcome to the server ${member} Make sure to read the rules`)
-})
 
 bot.on("message", async message => {
 
