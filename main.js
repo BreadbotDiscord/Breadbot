@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const bot = new Discord.Client({ disableEveryone: true});
 const botconfig = require("./botconfig.json");
 const fs = require('fs');
-const token = process.env.TOKEN
+const token = process.env.TOKEN;
 
 bot.commands = new Discord.Collection();
 bot.aliases= new Discord.Collection();
@@ -33,6 +33,14 @@ fs.readdir("./commands/", (err, files) => {
 bot.on("ready", async () =>{
     console.log(`${bot.user.username} is online on ${bot.guilds.cache.size} servers!`);
     bot.user.setActivity(`?help`, {type: "WATCHING"});
+})
+//New user greeting 
+bot.on("guildMemberAdd", member =>{
+
+    const joinchannel = member.guild.channels.cache.find(joinchannel => channel.name === "Joins and leaves")
+    if(joinchannel) return;
+
+    channel.send(`Welcome to the server ${member} Make sure to read the rules`)
 })
 
 bot.on("message", async message => {
