@@ -31,7 +31,7 @@ fs.readdir("./commands/", (err, files) => {
 //Bot on log and activity
 bot.on("ready", async () =>{
     console.log(`${bot.user.username} is online on ${bot.guilds.cache.size} servers!`);
-    bot.user.setActivity(`?help`, {type: "WATCHING"});
+    bot.user.setActivity(`?help|${bot.guild.cache.size}!`, {type: "WATCHING"});
 })
 
 bot.on("message", async message => {
